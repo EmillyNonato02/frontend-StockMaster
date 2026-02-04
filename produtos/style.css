@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+
+:root {
+    --bg: #fffafb;
+    --card: #ffffff;
+    --text-main: #5d4a4d;
+    --text-sub: #8e7d7f;
+    --primary: #ff85a1; /* Rosa suave */
+    --primary-hover: #ffb3c1;
+    --accent: #b392ac; /* Lavanda */
+    --header: rgba(255, 255, 255, 0.85);
+    --border: #fce4ec;
+    --shadow: 0 10px 30px rgba(255, 133, 161, 0.1);
+}
+
+[data-theme="dark"] {
+    --bg: #2d1b24;
+    --card: #3d2631;
+    --text-main: #ffe1e6;
+    --text-sub: #d4a5ab;
+    --primary: #ff85a1;
+    --primary-hover: #ffb3c1;
+    --header: rgba(45, 27, 36, 0.9);
+    --border: #4d323f;
+    --shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif; /* Fonte mais arredondada e amigável */
+    background-color: var(--bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: all 0.4s ease;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: var(--header);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+#theme-toggle {
+    background: var(--primary);
+    color: white;
+    padding: 0.6rem 1.4rem;
+    border-radius: 30px;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-left: 2rem;
+    box-shadow: 0 4px 10px rgba(255, 133, 161, 0.3);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 2rem 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 4rem;
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.slogan {
+    font-size: 1.3rem;
+    color: var(--text-sub);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 3rem;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 40px; /* Bordas bem arredondadas */
+    padding: 3.5rem 2.5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 133, 161, 0.15);
+    border-color: var(--primary);
+}
+
+.card h2, .card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    color: var(--text-main);
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 20px;
+    border: 2px solid var(--border);
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+}
+
+button {
+    background: linear-gradient(135deg, var(--primary), #ff9eb5);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 20px;
+    border: none;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(255, 133, 161, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 133, 161, 0.4);
+    filter: brightness(1.05);
+}
+
+.price-tag {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-top: auto;
+}
+
+@media (max-width: 768px) {
+    header { padding: 1rem 5%; }
+    nav a, #theme-toggle { margin-left: 1rem; }
+    .hero h1 { font-size: 2.5rem; }
+}

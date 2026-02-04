@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cadastro - StockMaster</title>
+</head>
+<body>
+    <header>
+        <h1>StockMaster</h1>
+        <nav>
+            <a href="../index.html">Início</a>
+            <a href="cadastro.html">Cadastrar Produto</a>
+            <a href="../produtos/produtos.html">Ver Tudo</a>
+            <button id="theme-toggle">🌓 Tema</button>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Cadastrar Novo Item</h2>
+        <form id="formCadastro" class="card">
+            <input type="text" id="name" placeholder="Nome do Produto" required>
+            <input type="number" id="price" step="0.01" placeholder="Preço" required>
+            <input type="text" id="category" placeholder="Categoria" required>
+            <textarea id="description" placeholder="Descrição" rows="4"></textarea>
+            <button type="submit">Cadastrar Produto</button>
+        </form>
+    </div>
+    <script src="../script.js"></script>
+</body>
+</html>
