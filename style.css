@@ -5,9 +5,11 @@
     --card: #ffffff;
     --text-main: #5d4a4d;
     --text-sub: #8e7d7f;
-    --primary: #ff85a1; /* Rosa suave */
+    --primary: #ff85a1;
+    /* Rosa suave */
     --primary-hover: #ffb3c1;
-    --accent: #b392ac; /* Lavanda */
+    --accent: #b392ac;
+    /* Lavanda */
     --header: rgba(255, 255, 255, 0.85);
     --border: #fce4ec;
     --shadow: 0 10px 30px rgba(255, 133, 161, 0.1);
@@ -32,7 +34,8 @@
 }
 
 body {
-    font-family: 'Quicksand', sans-serif; /* Fonte mais arredondada e amigável */
+    font-family: 'Quicksand', sans-serif;
+    /* Fonte mais arredondada e amigável */
     background-color: var(--bg);
     color: var(--text-main);
     line-height: 1.6;
@@ -60,6 +63,7 @@ header h1 {
     font-weight: 700;
     background: linear-gradient(to right, var(--primary), var(--accent));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -0.5px;
 }
@@ -139,7 +143,8 @@ nav a:hover {
 .card {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 40px; /* Bordas bem arredondadas */
+    border-radius: 40px;
+    /* Bordas bem arredondadas */
     padding: 3.5rem 2.5rem;
     box-shadow: var(--shadow);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -157,7 +162,8 @@ nav a:hover {
     border-color: var(--primary);
 }
 
-.card h2, .card h3 {
+.card h2,
+.card h3 {
     font-size: 1.8rem;
     margin-bottom: 1.2rem;
     color: var(--text-main);
@@ -170,7 +176,8 @@ form {
     gap: 1.5rem;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: 1.2rem;
     border-radius: 20px;
@@ -182,7 +189,8 @@ input, textarea {
     transition: 0.3s;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary);
     background: white;
@@ -212,10 +220,30 @@ button:hover {
     font-weight: 700;
     color: var(--primary);
     margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #ff4d4d, #ff8080);
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.btn-delete:hover {
+    box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4);
 }
 
 @media (max-width: 768px) {
-    header { padding: 1rem 5%; }
-    nav a, #theme-toggle { margin-left: 1rem; }
-    .hero h1 { font-size: 2.5rem; }
+    header {
+        padding: 1rem 5%;
+    }
+
+    nav a,
+    #theme-toggle {
+        margin-left: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 }
