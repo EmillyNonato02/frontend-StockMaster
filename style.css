@@ -233,6 +233,23 @@ button:hover {
     box-shadow: 0 10px 20px rgba(255, 77, 77, 0.4);
 }
 
+.btn-edit {
+    background: linear-gradient(135deg, #4caf50, #81c784);
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.btn-edit:hover {
+    box-shadow: 0 10px 20px rgba(76, 175, 80, 0.4);
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     header {
         padding: 1rem 5%;

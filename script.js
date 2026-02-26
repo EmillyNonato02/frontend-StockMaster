@@ -60,7 +60,10 @@ if (lista) {
                     <p><strong>Categoria:</strong> ${p.category}</p>
                     <p>${p.description}</p>
                     <span class="price-tag">R$ ${p.price}</span>
-                    <button class="btn-delete" onclick="deleteProduct(${p.id})">Apagar</button>
+                    <div class="actions">
+                        <button class="btn-edit" onclick="goToEdit(${p.id})">Editar</button>
+                        <button class="btn-delete" onclick="deleteProduct(${p.id})">Apagar</button>
+                    </div>
                 </div>
             `).join('');
         } catch (error) {
@@ -69,6 +72,64 @@ if (lista) {
         }
     }
     fetchProducts();
+}
+
+function goToEdit(id) {
+    window.location.href = `../edicao/edicao.html?id=${id}`;
+}
+
+const formEdicao = document.getElementById('formEdicao');
+if (formEdicao) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    async function loadProductData() {
+        if (!productId) return;
+        try {
+            const res = await fetch(`http://localhost:3000/products/${productId}`);
+            if (res.ok) {
+                const product = await res.json();
+                document.getElementById('edit-name').value = product.name;
+                document.getElementById('edit-price').value = product.price;
+                document.getElementById('edit-category').value = product.category;
+                document.getElementById('edit-description').value = product.description;
+            } else {
+                alert("Erro ao carregar dados do produto.");
+            }
+        } catch (error) {
+            console.error("Erro ao carregar dados:", error);
+        }
+    }
+
+    loadProductData();
+
+    formEdicao.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: document.getElementById('edit-name').value,
+            price: parseFloat(document.getElementById('edit-price').value),
+            category: document.getElementById('edit-category').value,
+            description: document.getElementById('edit-description').value
+        };
+
+        try {
+            const res = await fetch(`http://localhost:3000/products/${productId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (res.ok) {
+                alert("Produto atualizado com sucesso!");
+                window.location.href = '../produtos/produtos.html';
+            } else {
+                alert("Erro ao atualizar o produto.");
+            }
+        } catch (error) {
+            console.error("Erro no servidor:", error);
+        }
+    });
 }
 
 async function deleteProduct(id) {
